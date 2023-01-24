@@ -12,7 +12,7 @@ function topKFrequent(nums, k) {
         }
     }
     // Create an array of arrays, where each sub-array contains a number and its frequency
-    let freqArr = Object.entries(freq);
+    let freqArr = Object.entries(freq)
     // Sort the array by frequency in descending order
     freqArr.sort((a, b) => b[1] - a[1]);
     // Initialize an empty array to store the k most frequent elements
