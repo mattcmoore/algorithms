@@ -15,5 +15,8 @@ function maxSumSubarray(arr, windowSize) {
     return maxSum;
   }
   
-  
+const arr = [2,3,1,4,6,22,33,7,9,11] 
+const size = 3
+
+console.log(maxSumSubarray(arr, size))
   
