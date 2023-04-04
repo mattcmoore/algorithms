@@ -1,18 +1,27 @@
-function isPalindrome(s) {
-    // Convert the string to lowercase and remove non-alphanumeric characters
-    let cleanStr = s.toLowerCase().replace(/[^a-z0-9]/g, "");
-    // Iterate through the string starting from the first and last characters
-    let right = cleanStr.length - 1
-    for (let left = 0; left < right; left++) {
-        // If the current characters are not equal, it is not a palindrome
-        if (cleanStr[left] !== cleanStr[right]) {
-            return false;
-        } else {
-            right--
-        }
+
+const palindrome = "amanaplanacanalpanama"
+const notPalindrome = "raceacar"
+
+function isPalindrome(str) {
+  if (str.length % 2 === 0) {
+    let result = true
+    let left = str.length / 2
+    let right = (str.length / 2) + 1
+    while (left > 0, right < str.length) {
+      if (str[left] === str[right]) {
+        left--
+        right++
+      } else {
+        result = false
+      }
     }
-    return true;
+    return result
+  } else {
+    let result = true
+    const start = Math.ceil(str.length / 2)
+    console.log(start)
+    return result
+  }
 }
-console.log(isPalindrome("A man, a plan, a canal: Panama")); // Output: true
-console.log(isPalindrome("race a car")); // Output: false
-console.log(isPalindrome(" ")); // Output: true
+
+console.log(isPalindrome(notPalindrome))

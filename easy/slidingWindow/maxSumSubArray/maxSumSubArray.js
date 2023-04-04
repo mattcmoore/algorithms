@@ -1,22 +1,28 @@
-function maxSumSubarray(arr, windowSize) {
-    let maxSum = 0;
-    let windowSum = 0;
-    let start = 0;
-    let end = 0;
-    while (end < arr.length) {
-      windowSum += arr[end]; // adding the element to the window
-      if (end >= windowSize - 1) {
-        maxSum = Math.max(maxSum, windowSum); // update maxSum if the current window sum is greater
-        windowSum -= arr[start]; // remove the start element from the window
-        start++; // move the start pointer to the next element
-      }
-      end++; // move the end pointer to the next element
-    }
-    return maxSum;
-  }
-  
-const arr = [2,3,1,4,6,22,33,7,9,11] 
-const size = 3
+const array = [9,3,5,6,7,4,2,4,5,6,7]
+let window = 4
 
-console.log(maxSumSubarray(arr, size))
+function maxSumSubArray(arr, n){
+  // two pointers start and end, n apart
+  // start start at index 0 (start end at n)
+  let start = 0
+  let end = n
+  // slice the array using start and end, set to sum
+  // for i between 0 and arr.length - n,
+  let resArr=[]
+  const slice = arr.slice(start, end)
   
+  // the best way to add in javascript is with reduce, two arguments and a return statement that does prev + curr
+  let sum = slice.reduce( (prev, curr) => { return prev + curr} ) 
+  resArr.push(sum)
+  let i=0
+  while(end<arr.length+1){
+    sum = sum - arr[start] + arr[end]
+    resArr.push(sum)
+    start += i
+    end += i
+    i++
+  }
+  // you gotta spread out the array to use Math.max because it takes just straight nums
+  return Math.max(...resArr) 
+}
+console.log( maxSumSubArray(array,window) )
